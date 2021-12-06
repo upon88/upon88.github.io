@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>Hello World</title>
+    <url>/2021/12/03/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>常用命令</title>
+    <url>/2021/12/03/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[<h1 id="一、查看U盘在Ubuntu上的路径及手动挂载与卸载"><a href="#一、查看U盘在Ubuntu上的路径及手动挂载与卸载" class="headerlink" title="一、查看U盘在Ubuntu上的路径及手动挂载与卸载"></a>一、查看U盘在Ubuntu上的路径及手动挂载与卸载</h1><pre><code>sudo fdisk -l
+sudo mount -t  vfat /dev/sdb1  /media
+sudo umount /media/
+</code></pre>
+<h1 id="二、截图命令"><a href="#二、截图命令" class="headerlink" title="二、截图命令"></a>二、截图命令</h1><pre><code>adb shell screencap -p /sdcard/hello.png
+adb pull /sdcard/hello.png
+</code></pre>
+<h1 id="三、git退库"><a href="#三、git退库" class="headerlink" title="三、git退库"></a>三、git退库</h1><pre><code>git branch -a
+git push origin HEAD:refs/for/&lt;branch&gt; 
+</code></pre>
+<hr>
+<h2 id="https-github-com-jerryc127-hexo-theme-butterfly-使用主题"><a href="#https-github-com-jerryc127-hexo-theme-butterfly-使用主题" class="headerlink" title="   https://github.com/jerryc127/hexo-theme-butterfly     使用主题"></a>   <a href="https://github.com/jerryc127/hexo-theme-butterfly">https://github.com/jerryc127/hexo-theme-butterfly</a>     使用主题</h2>]]></content>
+  </entry>
+  <entry>
+    <title>基于hexo搭建github</title>
+    <url>/2021/12/03/%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BAgithub/</url>
+    <content><![CDATA[<h1 id="一、必备软件"><a href="#一、必备软件" class="headerlink" title="一、必备软件"></a>一、必备软件</h1><h2 id="1、安装Node-js"><a href="#1、安装Node-js" class="headerlink" title="1、安装Node.js"></a>1、安装Node.js</h2><p>a、<a href="https://nodejs.org/dist">下载Node.js</a><br>b、确认安装</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ node -v</span><br><span class="line">$ npm -v</span><br></pre></td></tr></table></figure>
+<h2 id="2、安装Git"><a href="#2、安装Git" class="headerlink" title="2、安装Git"></a>2、安装Git</h2><p>a、<a href="https://github.com/git-for-windows/git/releases/">下载Git</a><br>b、确认安装</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git --version</span><br></pre></td></tr></table></figure>
+
+<h2 id="3、安装hexo"><a href="#3、安装hexo" class="headerlink" title="3、安装hexo"></a>3、安装hexo</h2><p>a、打开cmd命令行(win+r 输入cmd回车)</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
+<p>b、确认安装</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo -v</span><br></pre></td></tr></table></figure>
+<h2 id="4、安装markdown工具"><a href="#4、安装markdown工具" class="headerlink" title="4、安装markdown工具"></a>4、安装markdown工具</h2><p><a href="https://atom.io/">下载Atom</a></p>
+<h1 id="二、常用命令"><a href="#二、常用命令" class="headerlink" title="二、常用命令"></a>二、常用命令</h1><h2 id="hexo配置相关命令"><a href="#hexo配置相关命令" class="headerlink" title="hexo配置相关命令"></a>hexo配置相关命令</h2><p>新建文件夹，然后右键</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git bash here</span><br><span class="line">$ npm install hexo --save</span><br><span class="line">$ hexo init</span><br><span class="line">$ npm install</span><br><span class="line">$ hexo g</span><br><span class="line">$ hexo s</span><br></pre></td></tr></table></figure>
+<h2 id="git命令"><a href="#git命令" class="headerlink" title="git命令"></a>git命令</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git init</span><br><span class="line">$ git remote add origin https://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@github.com/upon88/upon88.github.io.git</span><br><span class="line">$ git push origin master</span><br></pre></td></tr></table></figure>
+
+<h1 id="三、windows系统上配置ssh-key-的生成"><a href="#三、windows系统上配置ssh-key-的生成" class="headerlink" title="三、windows系统上配置ssh key 的生成"></a>三、windows系统上配置ssh key 的生成</h1><p>a、key的生成</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git config --global user.name <span class="string">&quot;yourname&quot;</span></span><br><span class="line">$ git config --global user.email <span class="string">&quot;youremail&quot;</span></span><br><span class="line">$ git config user.name</span><br><span class="line">$ git config user.email</span><br><span class="line">$ ssh-keygen -t rsa -C <span class="string">&quot;youremail&quot;</span></span><br></pre></td></tr></table></figure>
+<p>b、测试是否成功</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ ssh -T git@github.com</span><br></pre></td></tr></table></figure>
+
+<h1 id="四、在当前文件夹配置github仓"><a href="#四、在当前文件夹配置github仓" class="headerlink" title="四、在当前文件夹配置github仓"></a>四、在当前文件夹配置github仓</h1><p>根_config.yml中配置自己的远程仓库地址</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Deployment</span></span><br><span class="line"><span class="comment">## Docs: https://hexo.io/docs/one-command-deployment</span></span><br><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  repo: https://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@github.com/upon88/upon88.github.io.git  <span class="comment">##这里是需要配置为自己的token、用户名及仓名。</span></span><br><span class="line">  branch: main</span><br></pre></td></tr></table></figure>
+<h1 id="五、主题"><a href="#五、主题" class="headerlink" title="五、主题"></a>五、主题</h1><p>主题切换，直接在github搜索就可以找到，再根据说明步骤一一操作。</p>
+<h1 id="六、注意事项"><a href="#六、注意事项" class="headerlink" title="六、注意事项"></a>六、注意事项</h1><p>a、在github中新建仓的名字一定要与用户名一致；<br>b、切换新文件夹或者切换电脑时，一定要重新去生成token。</p>
+]]></content>
+  </entry>
+</search>
