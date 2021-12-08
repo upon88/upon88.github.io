@@ -3,17 +3,18 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
-subtitle: ''
+title: 'upon'
+subtitle: 'dfgertey'
 description: ''
 keywords:
-author: John Doe
-language: en
+author: UPON
+#language: en
+language: zh-CN
 timezone: ''
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: http://example.com
+url: http://upon88.github.io
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
@@ -97,11 +98,27 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: landscape
-
+#theme: landscape
+theme: butterfly
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: git
-  repo: https://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@github.com/upon88/upon88.github.io.git
+  repo: https://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@github.com/upon88/upon88.github.io.git
   branch: main
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
