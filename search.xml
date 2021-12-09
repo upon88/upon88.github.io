@@ -19,10 +19,25 @@
 ]]></content>
   </entry>
   <entry>
-    <title>user版本remount流程</title>
-    <url>/2021/12/09/user%E7%89%88%E6%9C%ACremount%E6%B5%81%E7%A8%8B/</url>
-    <content><![CDATA[<p>先进行unlock操作。可按如下操作进行：<br>1.进入设置，开发者模式，打开OEM unlocking选项.<br>2.adb reboot bootloader进入fastboot模式.<br>3.连接电脑，输入命令fastboot flashing unlock，然后根据命令按音量上键解锁.<br>出现如下提示算成功：<br>4.成功之后输入fastboot reboot重启手机.<br>5.开机之后，依次adb root，adb disable-verity，adb reboot<br>6.开机之后adb root，adb remount.此时成功会提示：<br>然后正常push即可。<br>注：刷机选择升级刷机方式，可不用1-4步骤操作，直接执行5-6即可。</p>
+    <title>fastboot刷机常用命令</title>
+    <url>/2021/12/09/fastboot%E5%88%B7%E6%9C%BA%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[<h1 id="重启进入fastboot模式"><a href="#重启进入fastboot模式" class="headerlink" title="重启进入fastboot模式"></a>重启进入fastboot模式</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">adb reboot bootloader</span><br></pre></td></tr></table></figure>
+
+<h1 id="解锁"><a href="#解锁" class="headerlink" title="解锁"></a>解锁</h1><p>解锁BootLoader的方法是在开发者模式中开起OEM unlocking开关</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">fastboot devices  //查看设备</span><br><span class="line">fastboot flashing unlock //解锁</span><br></pre></td></tr></table></figure>
+<h1 id="fastboot关闭-AVB"><a href="#fastboot关闭-AVB" class="headerlink" title="fastboot关闭 AVB"></a>fastboot关闭 AVB</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">fastboot --disable-verity --disable-verification flash vbmeta vbmeta.img</span><br></pre></td></tr></table></figure>
+<p>或者：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">fastboot --disable-verity flash vbmeta vbmeta.img</span><br><span class="line">fastboot --disable-verity flash vbmeta_system vbmeta_system.img</span><br></pre></td></tr></table></figure>
+<p>注意：关闭avb可能失败，还没去找解决方案。</p>
+<h1 id="擦除"><a href="#擦除" class="headerlink" title="擦除"></a>擦除</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">fastboot erase system</span><br><span class="line">fastboot erase cache</span><br><span class="line">fastboot erase config</span><br><span class="line">fastboot erase data</span><br><span class="line">fastboot erase logs</span><br><span class="line">fastboot erase factory</span><br></pre></td></tr></table></figure>
+
+<h1 id="刷机"><a href="#刷机" class="headerlink" title="刷机"></a>刷机</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">fastboot flash boot boot.img</span><br><span class="line">fastboot flash system system.img</span><br><span class="line">fastboot flash recovery recovery.img</span><br></pre></td></tr></table></figure>
+
+<h1 id="重启"><a href="#重启" class="headerlink" title="重启"></a>重启</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">fastboot reboot</span><br></pre></td></tr></table></figure>
 ]]></content>
+      <tags>
+        <tag>fastboot</tag>
+      </tags>
   </entry>
   <entry>
     <title>基于hexo搭建github</title>
@@ -53,25 +68,10 @@
 ]]></content>
   </entry>
   <entry>
-    <title>fastboot刷机常用命令</title>
-    <url>/2021/12/09/fastboot%E5%88%B7%E6%9C%BA%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
-    <content><![CDATA[<h1 id="重启进入fastboot模式"><a href="#重启进入fastboot模式" class="headerlink" title="重启进入fastboot模式"></a>重启进入fastboot模式</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">adb reboot bootloader</span><br></pre></td></tr></table></figure>
-
-<h1 id="解锁"><a href="#解锁" class="headerlink" title="解锁"></a>解锁</h1><p>解锁BootLoader的方法是在开发者模式中开起OEM unlocking开关</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">fastboot devices  //查看设备</span><br><span class="line">fastboot flashing unlock //解锁</span><br></pre></td></tr></table></figure>
-<h1 id="fastboot关闭-AVB"><a href="#fastboot关闭-AVB" class="headerlink" title="fastboot关闭 AVB"></a>fastboot关闭 AVB</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">fastboot --disable-verity --disable-verification flash vbmeta vbmeta.img</span><br></pre></td></tr></table></figure>
-<p>或者：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">fastboot --disable-verity flash vbmeta vbmeta.img</span><br><span class="line">fastboot --disable-verity flash vbmeta_system vbmeta_system.img</span><br></pre></td></tr></table></figure>
-<p>注意：关闭avb可能失败，还没去找解决方案。</p>
-<h1 id="擦除"><a href="#擦除" class="headerlink" title="擦除"></a>擦除</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">fastboot erase system</span><br><span class="line">fastboot erase cache</span><br><span class="line">fastboot erase config</span><br><span class="line">fastboot erase data</span><br><span class="line">fastboot erase logs</span><br><span class="line">fastboot erase factory</span><br></pre></td></tr></table></figure>
-
-<h1 id="刷机"><a href="#刷机" class="headerlink" title="刷机"></a>刷机</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">fastboot flash boot boot.img</span><br><span class="line">fastboot flash system system.img</span><br><span class="line">fastboot flash recovery recovery.img</span><br></pre></td></tr></table></figure>
-
-<h1 id="重启"><a href="#重启" class="headerlink" title="重启"></a>重启</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">fastboot reboot</span><br></pre></td></tr></table></figure>
+    <title>user版本remount流程</title>
+    <url>/2021/12/09/user%E7%89%88%E6%9C%ACremount%E6%B5%81%E7%A8%8B/</url>
+    <content><![CDATA[<p>先进行unlock操作。可按如下操作进行：<br>1.进入设置，开发者模式，打开OEM unlocking选项.<br>2.adb reboot bootloader进入fastboot模式.<br>3.连接电脑，输入命令fastboot flashing unlock，然后根据命令按音量上键解锁.<br>出现如下提示算成功：<br>4.成功之后输入fastboot reboot重启手机.<br>5.开机之后，依次adb root，adb disable-verity，adb reboot<br>6.开机之后adb root，adb remount.此时成功会提示：<br>然后正常push即可。<br>注：刷机选择升级刷机方式，可不用1-4步骤操作，直接执行5-6即可。</p>
 ]]></content>
-      <tags>
-        <tag>fastboot</tag>
-      </tags>
   </entry>
   <entry>
     <title>常用命令</title>
