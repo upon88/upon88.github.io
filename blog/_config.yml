@@ -4,7 +4,7 @@
 
 # Site
 title: 'upon'
-subtitle: 'dfgertey'
+subtitle: 'github随记'
 description: ''
 keywords:
 author: UPON
@@ -104,7 +104,7 @@ theme: butterfly
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: git
-  repo: https://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@github.com/upon88/upon88.github.io.git
+  repo: https://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@github.com/upon88/upon88.github.io.git
   branch: main
 
 
