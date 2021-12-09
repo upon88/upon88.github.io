@@ -19,20 +19,10 @@
 ]]></content>
   </entry>
   <entry>
-    <title>常用命令</title>
-    <url>/2021/12/03/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
-    <content><![CDATA[<h1 id="一、查看U盘在Ubuntu上的路径及手动挂载与卸载"><a href="#一、查看U盘在Ubuntu上的路径及手动挂载与卸载" class="headerlink" title="一、查看U盘在Ubuntu上的路径及手动挂载与卸载"></a>一、查看U盘在Ubuntu上的路径及手动挂载与卸载</h1><pre><code>sudo fdisk -l
-sudo mount -t  vfat /dev/sdb1  /media
-sudo umount /media/
-</code></pre>
-<h1 id="二、截图命令"><a href="#二、截图命令" class="headerlink" title="二、截图命令"></a>二、截图命令</h1><pre><code>adb shell screencap -p /sdcard/hello.png
-adb pull /sdcard/hello.png
-</code></pre>
-<h1 id="三、git退库"><a href="#三、git退库" class="headerlink" title="三、git退库"></a>三、git退库</h1><pre><code>git branch -a
-git push origin HEAD:refs/for/&lt;branch&gt; 
-</code></pre>
-<hr>
-<h2 id="https-github-com-jerryc127-hexo-theme-butterfly-使用主题"><a href="#https-github-com-jerryc127-hexo-theme-butterfly-使用主题" class="headerlink" title="   https://github.com/jerryc127/hexo-theme-butterfly     使用主题"></a>   <a href="https://github.com/jerryc127/hexo-theme-butterfly">https://github.com/jerryc127/hexo-theme-butterfly</a>     使用主题</h2>]]></content>
+    <title>user版本remount流程</title>
+    <url>/2021/12/09/user%E7%89%88%E6%9C%ACremount%E6%B5%81%E7%A8%8B/</url>
+    <content><![CDATA[<p>先进行unlock操作。可按如下操作进行：<br>1.进入设置，开发者模式，打开OEM unlocking选项.<br>2.adb reboot bootloader进入fastboot模式.<br>3.连接电脑，输入命令fastboot flashing unlock，然后根据命令按音量上键解锁.<br>出现如下提示算成功：<br>4.成功之后输入fastboot reboot重启手机.<br>5.开机之后，依次adb root，adb disable-verity，adb reboot<br>6.开机之后adb root，adb remount.此时成功会提示：<br>然后正常push即可。<br>注：刷机选择升级刷机方式，可不用1-4步骤操作，直接执行5-6即可。</p>
+]]></content>
   </entry>
   <entry>
     <title>基于hexo搭建github</title>
@@ -61,6 +51,44 @@ git push origin HEAD:refs/for/&lt;branch&gt;
 <h1 id="五、主题"><a href="#五、主题" class="headerlink" title="五、主题"></a>五、主题</h1><p>主题切换，直接在github搜索就可以找到，再根据说明步骤一一操作。</p>
 <h1 id="六、注意事项"><a href="#六、注意事项" class="headerlink" title="六、注意事项"></a>六、注意事项</h1><p>a、在github中新建仓的名字一定要与用户名一致；<br>b、切换新文件夹或者切换电脑时，一定要重新去生成token。</p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>fastboot刷机常用命令</title>
+    <url>/2021/12/09/fastboot%E5%88%B7%E6%9C%BA%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[<h1 id="重启进入fastboot模式"><a href="#重启进入fastboot模式" class="headerlink" title="重启进入fastboot模式"></a>重启进入fastboot模式</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">adb reboot bootloader</span><br></pre></td></tr></table></figure>
+
+<h1 id="解锁"><a href="#解锁" class="headerlink" title="解锁"></a>解锁</h1><p>解锁BootLoader的方法是在开发者模式中开起OEM unlocking开关</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">fastboot devices  //查看设备</span><br><span class="line">fastboot flashing unlock //解锁</span><br></pre></td></tr></table></figure>
+<h1 id="fastboot关闭-AVB"><a href="#fastboot关闭-AVB" class="headerlink" title="fastboot关闭 AVB"></a>fastboot关闭 AVB</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">fastboot --disable-verity --disable-verification flash vbmeta vbmeta.img</span><br></pre></td></tr></table></figure>
+<p>或者：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">fastboot --disable-verity flash vbmeta vbmeta.img</span><br><span class="line">fastboot --disable-verity flash vbmeta_system vbmeta_system.img</span><br></pre></td></tr></table></figure>
+<p>注意：关闭avb可能失败，还没去找解决方案。</p>
+<h1 id="擦除"><a href="#擦除" class="headerlink" title="擦除"></a>擦除</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">fastboot erase system</span><br><span class="line">fastboot erase cache</span><br><span class="line">fastboot erase config</span><br><span class="line">fastboot erase data</span><br><span class="line">fastboot erase logs</span><br><span class="line">fastboot erase factory</span><br></pre></td></tr></table></figure>
+
+<h1 id="刷机"><a href="#刷机" class="headerlink" title="刷机"></a>刷机</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">fastboot flash boot boot.img</span><br><span class="line">fastboot flash system system.img</span><br><span class="line">fastboot flash recovery recovery.img</span><br></pre></td></tr></table></figure>
+
+<h1 id="重启"><a href="#重启" class="headerlink" title="重启"></a>重启</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">fastboot reboot</span><br></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>fastboot</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>常用命令</title>
+    <url>/2021/12/03/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[<h1 id="一、查看U盘在Ubuntu上的路径及手动挂载与卸载"><a href="#一、查看U盘在Ubuntu上的路径及手动挂载与卸载" class="headerlink" title="一、查看U盘在Ubuntu上的路径及手动挂载与卸载"></a>一、查看U盘在Ubuntu上的路径及手动挂载与卸载</h1><pre><code>sudo fdisk -l
+sudo mount -t  vfat /dev/sdb1  /media
+sudo umount /media/
+</code></pre>
+<h1 id="二、截图命令"><a href="#二、截图命令" class="headerlink" title="二、截图命令"></a>二、截图命令</h1><pre><code>adb shell screencap -p /sdcard/hello.png
+adb pull /sdcard/hello.png
+</code></pre>
+<h1 id="三、git退库"><a href="#三、git退库" class="headerlink" title="三、git退库"></a>三、git退库</h1><pre><code>git branch -a
+  git push origin HEAD:refs/for/&lt;branch&gt;
+    
+</code></pre>
+<hr>
+<h2 id="https-github-com-jerryc127-hexo-theme-butterfly-使用主题"><a href="#https-github-com-jerryc127-hexo-theme-butterfly-使用主题" class="headerlink" title="   https://github.com/jerryc127/hexo-theme-butterfly     使用主题"></a>   <a href="https://github.com/jerryc127/hexo-theme-butterfly">https://github.com/jerryc127/hexo-theme-butterfly</a>     使用主题</h2>]]></content>
   </entry>
   <entry>
     <title>查看CRT会话中的密文</title>
