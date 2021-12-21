@@ -46,6 +46,23 @@
 ]]></content>
   </entry>
   <entry>
+    <title>常用命令</title>
+    <url>/2021/12/03/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[<h1 id="一、查看U盘在Ubuntu上的路径及手动挂载与卸载"><a href="#一、查看U盘在Ubuntu上的路径及手动挂载与卸载" class="headerlink" title="一、查看U盘在Ubuntu上的路径及手动挂载与卸载"></a>一、查看U盘在Ubuntu上的路径及手动挂载与卸载</h1><pre><code>sudo fdisk -l
+sudo mount -t  vfat /dev/sdb1  /media
+sudo umount /media/
+</code></pre>
+<h1 id="二、截图命令"><a href="#二、截图命令" class="headerlink" title="二、截图命令"></a>二、截图命令</h1><pre><code>adb shell screencap -p /sdcard/hello.png
+adb pull /sdcard/hello.png
+</code></pre>
+<h1 id="三、git退库"><a href="#三、git退库" class="headerlink" title="三、git退库"></a>三、git退库</h1><pre><code>git branch -a
+  git push origin HEAD:refs/for/&lt;branch&gt;
+    
+</code></pre>
+<hr>
+<h2 id="https-github-com-jerryc127-hexo-theme-butterfly-使用主题"><a href="#https-github-com-jerryc127-hexo-theme-butterfly-使用主题" class="headerlink" title="   https://github.com/jerryc127/hexo-theme-butterfly     使用主题"></a>   <a href="https://github.com/jerryc127/hexo-theme-butterfly">https://github.com/jerryc127/hexo-theme-butterfly</a>     使用主题</h2>]]></content>
+  </entry>
+  <entry>
     <title>基于hexo搭建github</title>
     <url>/2021/12/03/%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BAgithub/</url>
     <content><![CDATA[<h1 id="一、必备软件"><a href="#一、必备软件" class="headerlink" title="一、必备软件"></a>一、必备软件</h1><h2 id="1、安装Node-js"><a href="#1、安装Node-js" class="headerlink" title="1、安装Node.js"></a>1、安装Node.js</h2><p>a、<a href="https://nodejs.org/dist">下载Node.js</a><br>b、确认安装</p>
@@ -72,23 +89,6 @@
 <h1 id="五、主题"><a href="#五、主题" class="headerlink" title="五、主题"></a>五、主题</h1><p>主题切换，直接在github搜索就可以找到，再根据说明步骤一一操作。</p>
 <h1 id="六、注意事项"><a href="#六、注意事项" class="headerlink" title="六、注意事项"></a>六、注意事项</h1><p>a、在github中新建仓的名字一定要与用户名一致；<br>b、切换新文件夹或者切换电脑时，一定要重新去生成token。</p>
 ]]></content>
-  </entry>
-  <entry>
-    <title>常用命令</title>
-    <url>/2021/12/03/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
-    <content><![CDATA[<h1 id="一、查看U盘在Ubuntu上的路径及手动挂载与卸载"><a href="#一、查看U盘在Ubuntu上的路径及手动挂载与卸载" class="headerlink" title="一、查看U盘在Ubuntu上的路径及手动挂载与卸载"></a>一、查看U盘在Ubuntu上的路径及手动挂载与卸载</h1><pre><code>sudo fdisk -l
-sudo mount -t  vfat /dev/sdb1  /media
-sudo umount /media/
-</code></pre>
-<h1 id="二、截图命令"><a href="#二、截图命令" class="headerlink" title="二、截图命令"></a>二、截图命令</h1><pre><code>adb shell screencap -p /sdcard/hello.png
-adb pull /sdcard/hello.png
-</code></pre>
-<h1 id="三、git退库"><a href="#三、git退库" class="headerlink" title="三、git退库"></a>三、git退库</h1><pre><code>git branch -a
-  git push origin HEAD:refs/for/&lt;branch&gt;
-    
-</code></pre>
-<hr>
-<h2 id="https-github-com-jerryc127-hexo-theme-butterfly-使用主题"><a href="#https-github-com-jerryc127-hexo-theme-butterfly-使用主题" class="headerlink" title="   https://github.com/jerryc127/hexo-theme-butterfly     使用主题"></a>   <a href="https://github.com/jerryc127/hexo-theme-butterfly">https://github.com/jerryc127/hexo-theme-butterfly</a>     使用主题</h2>]]></content>
   </entry>
   <entry>
     <title>常见Android镜像拆封包命令</title>
