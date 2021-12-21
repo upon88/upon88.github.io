@@ -104,7 +104,7 @@ theme: butterfly
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: git
-  repo: https://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@github.com/upon88/upon88.github.io.git
+  repo: https://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@github.com/upon88/upon88.github.io.git
   branch: main
 
 
