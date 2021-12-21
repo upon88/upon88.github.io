@@ -1,24 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Hello World</title>
-    <url>/2021/12/03/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
     <title>fastboot刷机常用命令</title>
     <url>/2021/12/09/fastboot%E5%88%B7%E6%9C%BA%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
     <content><![CDATA[<h1 id="重启进入fastboot模式"><a href="#重启进入fastboot模式" class="headerlink" title="重启进入fastboot模式"></a>重启进入fastboot模式</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">adb reboot bootloader</span><br></pre></td></tr></table></figure>
@@ -38,6 +20,30 @@
       <tags>
         <tag>fastboot</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2021/12/03/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>user版本remount流程</title>
+    <url>/2021/12/09/user%E7%89%88%E6%9C%ACremount%E6%B5%81%E7%A8%8B/</url>
+    <content><![CDATA[<p>先进行unlock操作。可按如下操作进行：<br>1.进入设置，开发者模式，打开OEM unlocking选项.<br>2.adb reboot bootloader进入fastboot模式.<br>3.连接电脑，输入命令fastboot flashing unlock，然后根据命令按音量上键解锁.<br>出现如下提示算成功：<br>4.成功之后输入fastboot reboot重启手机.<br>5.开机之后，依次adb root，adb disable-verity，adb reboot<br>6.开机之后adb root，adb remount.此时成功会提示：<br>然后正常push即可。<br>注：刷机选择升级刷机方式，可不用1-4步骤操作，直接执行5-6即可。</p>
+]]></content>
   </entry>
   <entry>
     <title>基于hexo搭建github</title>
@@ -68,12 +74,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>user版本remount流程</title>
-    <url>/2021/12/09/user%E7%89%88%E6%9C%ACremount%E6%B5%81%E7%A8%8B/</url>
-    <content><![CDATA[<p>先进行unlock操作。可按如下操作进行：<br>1.进入设置，开发者模式，打开OEM unlocking选项.<br>2.adb reboot bootloader进入fastboot模式.<br>3.连接电脑，输入命令fastboot flashing unlock，然后根据命令按音量上键解锁.<br>出现如下提示算成功：<br>4.成功之后输入fastboot reboot重启手机.<br>5.开机之后，依次adb root，adb disable-verity，adb reboot<br>6.开机之后adb root，adb remount.此时成功会提示：<br>然后正常push即可。<br>注：刷机选择升级刷机方式，可不用1-4步骤操作，直接执行5-6即可。</p>
-]]></content>
-  </entry>
-  <entry>
     <title>常用命令</title>
     <url>/2021/12/03/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
     <content><![CDATA[<h1 id="一、查看U盘在Ubuntu上的路径及手动挂载与卸载"><a href="#一、查看U盘在Ubuntu上的路径及手动挂载与卸载" class="headerlink" title="一、查看U盘在Ubuntu上的路径及手动挂载与卸载"></a>一、查看U盘在Ubuntu上的路径及手动挂载与卸载</h1><pre><code>sudo fdisk -l
@@ -89,6 +89,44 @@ adb pull /sdcard/hello.png
 </code></pre>
 <hr>
 <h2 id="https-github-com-jerryc127-hexo-theme-butterfly-使用主题"><a href="#https-github-com-jerryc127-hexo-theme-butterfly-使用主题" class="headerlink" title="   https://github.com/jerryc127/hexo-theme-butterfly     使用主题"></a>   <a href="https://github.com/jerryc127/hexo-theme-butterfly">https://github.com/jerryc127/hexo-theme-butterfly</a>     使用主题</h2>]]></content>
+  </entry>
+  <entry>
+    <title>常见Android镜像拆封包命令</title>
+    <url>/2021/12/21/%E5%B8%B8%E8%A7%81Android%E9%95%9C%E5%83%8F%E6%8B%86%E5%B0%81%E5%8C%85%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[<h1 id="拆封ramdisk包"><a href="#拆封ramdisk包" class="headerlink" title="拆封ramdisk包"></a>拆封ramdisk包</h1><p>新建文件夹(以下雷同)</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">mkdir test;cd test;cp XXX/ramdisk.img ./</span><br></pre></td></tr></table></figure>
+<p>拆包：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">mkdir rootfs;cp ramdisk.img rootfs/ ;cd rootfs/;mv ramdisk.img ramdisk.img.gz;gunzip ramdisk.img.gz</span><br><span class="line">mkdir root;cd root;cpio -i -F ../ramdisk.img</span><br></pre></td></tr></table></figure>
+<p>封包：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cd root;find . | cpio -o -H newc &gt;../tmp_ramdisk.img</span><br><span class="line">cd .. ;gzip -c tmp_ramdisk.img &gt; new_ramdisk.img</span><br></pre></td></tr></table></figure>
+<h1 id="拆封boot-img包"><a href="#拆封boot-img包" class="headerlink" title="拆封boot.img包"></a>拆封boot.img包</h1><p>新建文件夹</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">mkdir test;cd test;cp XXX/boot.img ./</span><br></pre></td></tr></table></figure>
+<p>拆包工具：unpack_bootimg（需要source/lunch/make unpack_bootimg生成即可）</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> unpack_bootimg --boot_img boot.img --out boot-out/</span></span><br><span class="line">boot_magic: ANDROID!</span><br><span class="line">kernel_size: 17983189</span><br><span class="line">kernel load address: 0x20280000</span><br><span class="line">ramdisk size: 0</span><br><span class="line">ramdisk load address: 0x0</span><br><span class="line">second bootloader size: 0</span><br><span class="line">second bootloader load address: 0x0</span><br><span class="line">kernel tags load address: 0x20280100</span><br><span class="line">page size: 2048</span><br><span class="line">os version: 11.0.0</span><br><span class="line">os patch level: 2021-11</span><br><span class="line">boot image header version: 1</span><br><span class="line">product name:</span><br><span class="line">command line args: buildvariant=userdebug</span><br><span class="line">additional command line args:</span><br><span class="line">recovery dtbo size: 0</span><br><span class="line">recovery dtbo offset: 0x0</span><br><span class="line">boot header size: 1648</span><br></pre></td></tr></table></figure>
+<p>封包工具：mkbootimg（对应的参数根据解包的参数而定）</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">mkbootimg --cmdline &#x27;buildvariant=userdebug&#x27; --kernel boot-out/kernel --ramdisk boot-out/ramdisk -o new_boot.img --base 0x20280000</span><br></pre></td></tr></table></figure>
+<p>注：（通过该命令打包之后，boot.img的大小对不上了，不清楚原因）</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ls -l new_boot.img</span><br><span class="line">-rw-rw-r-- 1 root root 17985536 12月 20 15:25 new_boot.img</span><br><span class="line"></span><br><span class="line">ls -l boot.img</span><br><span class="line">-rw-rw-r-- 1 root root 33554432 12月 20 15:10 boot.img</span><br></pre></td></tr></table></figure>
+<p>再解压，发现没有dtbo的打印</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> unpack_bootimg --boot_img new_boot.img --out new_boot-out/</span></span><br><span class="line">boot_magic: ANDROID!</span><br><span class="line">kernel_size: 17983189</span><br><span class="line">kernel load address: 0x20288000</span><br><span class="line">ramdisk size: 0</span><br><span class="line">ramdisk load address: 0x0</span><br><span class="line">second bootloader size: 0</span><br><span class="line">second bootloader load address: 0x0</span><br><span class="line">kernel tags load address: 0x20280100</span><br><span class="line">page size: 2048</span><br><span class="line">os version: 0.0.0</span><br><span class="line">os patch level: 2000-00</span><br><span class="line">boot image header version: 0</span><br><span class="line">product name:</span><br><span class="line">command line args: buildvariant=userdebug</span><br><span class="line">additional command line args:</span><br></pre></td></tr></table></figure>
+
+<h1 id="拆dtbo-img包"><a href="#拆dtbo-img包" class="headerlink" title="拆dtbo.img包"></a>拆dtbo.img包</h1><p>提取dtb数据：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">mkdtimg dump dtbo.img -b my.dtb</span><br></pre></td></tr></table></figure>
+<p>将dtb文件转换为dts文件：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">dtc -I dtb -O dts my.dtb.0 -o my.dts</span><br></pre></td></tr></table></figure>
+<h1 id="拆封system-img包"><a href="#拆封system-img包" class="headerlink" title="拆封system.img包"></a>拆封system.img包</h1><h2 id="常见格式："><a href="#常见格式：" class="headerlink" title="常见格式："></a>常见格式：</h2><p>1、ext2/3/4<br>直接挂载：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">mount -o loop system.img /mnt</span><br></pre></td></tr></table></figure>
+<p>Android 10以上</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo mount -t ext4 -o ro system.img /mnt 由于vbmeta原因只能以只读的方式挂载</span><br></pre></td></tr></table></figure>
+<p>2、带MBR分区信息的镜像(system_qemu.img)<br>查看信息</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">fdisk -lu system_qemu.img</span><br><span class="line">sgdisk --print system_qemu.img</span><br></pre></td></tr></table></figure>
+<p>使用dd命令拆解</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">name=vbmeta;start=2048;end=4095 (根据sgdisk命令获取)</span><br><span class="line">dd if=system_qemu.img of=split/$&#123;name&#125;.img skip=$&#123;start&#125; bs=512 count=$(($&#123;end&#125;-$&#123;start&#125;+1))</span><br><span class="line">name=super;start=4096;end=6311935 (根据sgdisk命令获取)</span><br><span class="line">dd if=system_qemu.img of=split/$&#123;name&#125;.img skip=$&#123;start&#125; bs=512 count=$(($&#123;end&#125;-$&#123;start&#125;+1))</span><br></pre></td></tr></table></figure>
+<p>解压super.img(system.img+vendor.img)</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">lpunpack super.img</span><br></pre></td></tr></table></figure>
+<p>3、sparse image稀疏镜像格式</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">simg2img system.img system_new.img</span><br><span class="line">sudo mount system_new.img /mnt</span><br></pre></td></tr></table></figure>
+]]></content>
   </entry>
   <entry>
     <title>查看CRT会话中的密文</title>
